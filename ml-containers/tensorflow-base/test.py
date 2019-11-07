@@ -18,34 +18,3 @@ device_lib.list_local_devices()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 1Help              2Save              3Mark               4Replac             5Copy               6Move              7Search             8Delete             9PullDn            10Quit

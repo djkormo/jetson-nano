@@ -21,6 +21,7 @@ sudo apt-get install python3-dev
 sudo apt-get install python3-matplotlib
 sudo apt-get install libfreetype6-dev # for matplot 
 sudo apt-get install python3-pil # for matplot 
+sudo apt-get install graphviz
 
 # instalacja pip
 
@@ -57,6 +58,8 @@ pip install scipy
 pip install keras
 pip install dlib
 pip install imutils
+pip install pydot
+pip install graphviz
 
 # instalacja notatnikow jupytera
 pip install ipykernel

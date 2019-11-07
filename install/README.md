@@ -20,11 +20,11 @@
 --------------------------
 Once it boots up and you’ve verified it’s on your network and the Internet:
 
-    Go to the Network Settings and find the IP V4 address of your machine, write it down , or if you understand IP networking set up a fixed IP address .
-    Use the PC terminal program to open an SSH session with your Jetson Nano.
-    Use your file transfer program to transfer the files in the zip File 84 to your Nano’s user home directory.
-    From your PC ssh into the IP address in step 1 above.
-    From either the console or via an SSH connection, set execute permissions on the scripts you’ve just downloaded:
+Go to the Network Settings and find the IP V4 address of your machine, write it down , or if you understand IP networking set up a fixed IP address .
+Use the PC terminal program to open an SSH session with your Jetson Nano.
+Use your file transfer program to transfer the files in the zip File 84 to your Nano’s user home directory.
+From your PC ssh into the IP address in step 1 above.
+From either the console or via an SSH connection, set execute permissions on the scripts you’ve just downloaded:
 
 chmod +x fastai_jetson.sh
 chmod +x jetson_headless.sh
