@@ -6,6 +6,8 @@ ENV PYTHON_PACKAGES="\
     cython \
     numpy \
     matplotlib \
+    folium \
+    seaborn \
     scipy \
     scikit-learn \
     pandas \
