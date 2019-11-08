@@ -10,25 +10,3 @@ RUN apt-get update && apt install -y --fix-missing libjpeg-dev zlib1g-dev \
 #     && cd .. && rm -rf torchvision
 COPY test.py test.py
 CMD [ "bash" ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 1Help              2Save              3Mark               4Replac             5Copy               6Move              7Search             8Delete             9PullDn            10Quit
