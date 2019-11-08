@@ -22,29 +22,3 @@ podman build -t $DOCKER_PROJECT_ID/$SERVICE_NAME . -f Dockerfile
 #push
 
 podman push  $DOCKER_PROJECT_ID/$SERVICE_NAME
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 1Help              2Save              3Mark               4Replac             5Copy               6Move              7Search             8Delete             9PullDn            10Quit
