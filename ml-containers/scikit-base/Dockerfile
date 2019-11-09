@@ -14,11 +14,9 @@ ENV PYTHON_PACKAGES="\
     nltk \
 "
 
-RUN apt-get update && apt-get install -y --fix-missing make g++
+RUN apt-get update && apt-get install -y --fix-missing make g++ gfortran
 RUN apt-get update && apt-get install -y --fix-missing python3-pip libhdf5-serial-dev hdf5-tools
-RUN apt-get update && apt-get install -y python3-h5py
-
-RUN apt-get install -y  python3-dev python3-matplotlib libfreetype6-dev python-pil python3-scipy
+RUN apt-get update && apt-get install -y python3-h5py python3-dev python3-matplotlib libfreetype6-dev python-pil python3-scipy
 
 RUN pip3  install --no-cache-dir $PYTHON_PACKAGES
 COPY test.py test.py
