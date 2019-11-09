@@ -1,13 +1,8 @@
-FROM nvcr.io/nvidia/l4t-base:r32.2
+FROM djkormo/jetson-pytorch-base:0.1.0
 WORKDIR /home
-RUN apt-get update && apt-get install -y --fix-missing python3-pip git
-RUN wget https://nvidia.box.com/shared/static/phqe92v26cbhqjohwtvxorrwnmrnfx1o.whl -O torch-1.3.0-cp36-cp36m-linux_aarch64.whl \
-    && pip3 install numpy torch-1.3.0-cp36-cp36m-linux_aarch64.whl && rm torch-1.3.0-cp36-cp36m-linux_aarch64.whl
-RUN apt-get update && apt-get install -y --fix-missing libjpeg-dev zlib1g-dev \
-  && git clone -b v0.5.0 https://github.com/pytorch/vision torchvision --depth 1 \
-  && cd torchvision 
-#     && python3 setup.py install \
-#     && cd .. && rm -rf torchvision
-COPY test.py test.py
-CMD [ "bash" ]
 
+RUN pip3 install --no-cache-dir ipykernel jupyter notebook jupyterlab
+RUN jupyter serverextension enable --py jupyterlab --sys-prefix
+EXPOSE 8888
+COPY test.py test.py
+CMD ["bash","-c","jupyter lab --ip=0.0.0.0 --allow-root --NotebookApp.token='' --no-browser "]

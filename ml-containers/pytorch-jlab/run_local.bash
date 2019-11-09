@@ -1,1 +1,1 @@
-docker run -it --runtime=nvidia --network=host djkormo/jetson-pytorch-base:0.1.0
+docker run -d --runtime=nvidia --network=host djkormo/jetson-pytorch-lab:0.1.0
