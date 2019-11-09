@@ -13,6 +13,6 @@ RUN apt-get update && apt-get install -y --fix-missing libjpeg-dev zlib1g-dev \
 #     && python3 setup.py install \
 #     && cd .. && rm -rf torchvision
 COPY test.py test.py
-COPY test_mnist.py test_mnist.py
+COPY test-mnist.py test-mnist.py
 CMD [ "bash" ]
 
