@@ -2,7 +2,7 @@
 import torch
 import torchvision
 
-n_epochs = 3
+n_epochs = 1
 batch_size_train = 64
 batch_size_test = 1000
 learning_rate = 0.01
@@ -95,8 +95,8 @@ def train(epoch):
       train_losses.append(loss.item())
       train_counter.append(
         (batch_idx*64) + ((epoch-1)*len(train_loader.dataset)))
-      torch.save(network.state_dict(), '/home/results/model.pth')
-      torch.save(optimizer.state_dict(), '/home/results/optimizer.pth')
+      torch.save(network.state_dict(), '/home/files/model.pth')
+      torch.save(optimizer.state_dict(), '/home/files/optimizer.pth')
 
 
 def test():
