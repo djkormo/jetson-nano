@@ -1,4 +1,4 @@
-FROM djkormo/jetson-pytorch-base:0.1.0
+FROM djkormo/jetson-pytorch-base:0.2.0
 WORKDIR /home
 
 RUN pip3 install --no-cache-dir ipykernel jupyter notebook jupyterlab
