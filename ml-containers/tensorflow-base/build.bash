@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t djkormo/jetson-tensorflow-base:0.1.0.
+docker build -t djkormo/jetson-tensorflow-base:0.1.0 .
