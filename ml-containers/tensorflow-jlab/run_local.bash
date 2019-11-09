@@ -1,1 +1,1 @@
-docker run -d --runtime=nvidia --network=host djkormo/jetson-tensorflow-base:0.1
+docker run -d --runtime=nvidia --network=host djkormo/jetson-tensorflow-jlab:0.1
