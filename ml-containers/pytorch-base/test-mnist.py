@@ -1,6 +1,6 @@
-# based on https://nextjournal.com/gkoehler/pytorch-mnist
 import torch
 import torchvision
+import torchvision.transforms as transforms
 
 n_epochs = 1
 batch_size_train = 64
@@ -8,10 +8,18 @@ batch_size_test = 1000
 learning_rate = 0.01
 momentum = 0.5
 log_interval = 10
-
 random_seed = 1
-torch.backends.cudnn.enabled = False
+
+torch.set_default_tensor_type(torch.cuda.FloatTensor)
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print(" Device:",device)
+
+
+torch.backends.cudnn.enabled  = True
+torch.backends.cudnn.benchmark =True
 torch.manual_seed(random_seed)
+
+
 
 train_loader = torch.utils.data.DataLoader(
   torchvision.datasets.MNIST('/home/files/', train=True, download=True,
@@ -34,7 +42,7 @@ test_loader = torch.utils.data.DataLoader(
 examples = enumerate(test_loader)
 batch_idx, (example_data, example_targets) = next(examples)
 
-example_data.shape
+print("example_data.shape:",example_data.shape)
 
 import matplotlib.pyplot as plt
 
@@ -72,6 +80,10 @@ class Net(nn.Module):
         return F.log_softmax(x)
 
 network = Net()
+print("Devico for CNN:",device)
+network=network.to(device)
+print(network)
+
 optimizer = optim.SGD(network.parameters(), lr=learning_rate,
                       momentum=momentum)
 
@@ -83,6 +95,8 @@ test_counter = [i*len(train_loader.dataset) for i in range(n_epochs + 1)]
 def train(epoch):
   network.train()
   for batch_idx, (data, target) in enumerate(train_loader):
+    data=data.cuda()
+    target=target.cuda()
     optimizer.zero_grad()
     output = network(data)
     loss = F.nll_loss(output, target)
@@ -105,7 +119,10 @@ def test():
   correct = 0
   with torch.no_grad():
     for data, target in test_loader:
+      data=data.cuda()
+      target=target.cuda()
       output = network(data)
+      output=output.cuda()
       test_loss += F.nll_loss(output, target, size_average=False).item()
       pred = output.data.max(1, keepdim=True)[1]
       correct += pred.eq(target.data.view_as(pred)).sum()
@@ -129,18 +146,17 @@ plt.ylabel('negative log likelihood loss')
 fig  
 
 
-with torch.no_grad():
-  output = network(example_data)
-  
-fig = plt.figure()
-for i in range(6):
-  plt.subplot(2,3,i+1)
-  plt.tight_layout()
-  plt.imshow(example_data[i][0], cmap='gray', interpolation='none')
-  plt.title("Prediction: {}".format(
-    output.data.max(1, keepdim=True)[1][i].item()))
-  plt.xticks([])
-  plt.yticks([])
-fig
+#with torch.no_grad():
+#  output = network(example_data)
 
+#fig = plt.figure()
+#for i in range(6):
+#  plt.subplot(2,3,i+1)
+#  plt.tight_layout()
+#  plt.imshow(example_data[i][0], cmap='gray', interpolation='none')
+#  plt.title("Prediction: {}".format(
+#    output.data.max(1, keepdim=True)[1][i].item()))
+#  plt.xticks([])
+#  plt.yticks([])
+#fig
   
