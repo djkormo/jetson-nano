@@ -17,5 +17,6 @@ RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 COPY test.py test.py
 COPY test-mnist.py test-mnist.py
+COPY test-cifar10.py test-cifar10.py
 CMD [ "bash" ]
 
