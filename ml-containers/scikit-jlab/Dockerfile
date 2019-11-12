@@ -6,5 +6,6 @@ RUN jupyter serverextension enable --py jupyterlab --sys-prefix
 EXPOSE 8888
 COPY test.py test.py
 COPY clustering/*.ipynb  ./clustering/
+COPY classification/*.ipynb  ./classification/
 CMD ["bash","-c","jupyter lab --ip=0.0.0.0 --allow-root --NotebookApp.token='' --no-browser "]
 
